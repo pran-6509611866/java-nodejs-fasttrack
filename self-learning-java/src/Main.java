@@ -1,38 +1,37 @@
-import java.util.Scanner;
-import java.util.ArrayList;
+class Student {
+    // static variable: ใช้นับจำนวนอ็อบเจกต์ที่ถูกสร้าง
+    private static int count = 0;
+
+    // instance variable: เก็บชื่อของแต่ละอ็อบเจกต์
+    private String name;
+
+    // Constructor
+    public Student(String name) {
+        this.name = name;
+        count++; // ทุกครั้งที่สร้าง Student ใหม่ count จะเพิ่มขึ้น
+    }
+
+    // static method: แสดงจำนวนอ็อบเจกต์ทั้งหมด
+    public static void printTotalStudents() {
+        System.out.println("Total Students: " + count);
+    }
+
+    // instance method: แสดงชื่อของอ็อบเจกต์นี้
+    public void printName() {
+        System.out.println("Student name: " + name);
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 4, 5};
-        int sum = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            sum += numbers[i];
-        }
-        System.out.println("Sum: " + sum);
+        Student s1 = new Student("Alice");
+        Student s2 = new Student("Bob");
+        Student s3 = new Student("Charlie");
 
-        ArrayList<String> stringList = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter 3 names of students: ");
-        for (int i = 0; i < 3; i++) {
-            String input = scanner.nextLine();
-            stringList.add(input);
-        }
-        System.out.println("You entered: " + stringList);
+        s1.printName(); // Student name: Alice
+        s2.printName(); // Student name: Bob
+        s3.printName(); // Student name: Charlie
 
-        System.out.print("Enter a word: ");
-        String wordString = scanner.nextLine();
-        System.out.println("You length of the word is: " + wordString.length());
-        System.out.println("Uppercase: " + wordString.toUpperCase());
-
-        System.out.print("Enter two integers to divide: ");
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
-        try {
-            int result = a / b;
-            System.out.println("Division result: " + result);
-        } catch (ArithmeticException e) {
-            System.out.println("Error: Division by zero is not allowed.");
-        }
-        scanner.close();
+        Student.printTotalStudents(); // Total Students: 3
     }
 }
