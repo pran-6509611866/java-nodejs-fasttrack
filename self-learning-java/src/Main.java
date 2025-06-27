@@ -1,86 +1,49 @@
-class Vehicle {
-    void move() {
-        System.out.println("Vehicle is moving");
+import java.util.Scanner;
+
+class HelloWorld {
+    void greet() {
+        System.out.println("Hello, World!");
     }
 }
 
-class Car extends Vehicle {
-    @Override
-    void move() {
-        System.out.println("Car is driving");
-    }
-}
+class Main {
+    public static void main(String[] args) {
+        HelloWorld hello = new HelloWorld();
+        hello.greet();
 
-class Boat extends Vehicle {
-    @Override
-    void move() {
-        System.out.println("Boat is sailing");
-    }
-}
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your score: ");
+        int score = scanner.nextInt();
+        System.out.println("Your score is: " + score);
 
-abstract class Shape {
-    abstract void area();
-}
+        System.out.print("Enter a number to check if it's even or odd: ");
+        int number = scanner.nextInt();
+        if (number % 2 == 0) {
+            System.out.println("Even number");
+        } else {
+            System.out.println("Odd number");
+        }
 
-class Rectangle extends Shape {
-    int length, width;
-    Rectangle(int length, int width) {
-        this.length = length;
-        this.width = width;
-    }
-    @Override
-    void area() {
-        System.out.println("Area of rectangle: " + (length * width));
-    }
-}
 
-class Circle extends Shape {
-    int radius;
-    Circle(int radius) {
-        this.radius = radius;
-    }
-    @Override
-    void area() {
-        System.out.println("Area of circle: " + (Math.PI * radius * radius));
-    }
-}
+        int summation = 0;
+        for (int i = 1; i <= 100; i++){
+            summation += i;
+        }
+        System.out.println("Summation is between 1 and 100: " + summation);
 
-interface Printable {
-    void print();
-}
-
-class Student implements Printable {
-    @Override
-    public void print() {
-        System.out.println("Student details");
-    }
-}
-
-class Book implements Printable {
-    @Override
-    public void print() {
-        System.out.println("Book details");
-    }
-}
-
-public class Main {
-    public static void main(String args[]) {
-        // Polymorphism
-        Vehicle myCar = new Car();
-        Vehicle myBoat = new Boat();
-        myCar.move();  // Output: Car is driving
-        myBoat.move(); // Output: Boat is sailing
-
-        // Abstract & Override
-        Shape rect = new Rectangle(5, 7);
-        Shape circ = new Circle(4);
-        rect.area();   // Output: Area of rectangle: 35
-        circ.area();   // Output: Area of circle: 50.265...
-
-        // Interface
-        Printable stu = new Student();
-        Printable book = new Book();
-        stu.print();   // Output: Student details
-        book.print();  // Output: Book details
+        int guess = (int)(Math.random() * 10) + 1;
+        System.out.print("Enter your guess (1-10): ");
+        int input = scanner.nextInt();
+        
+        while (input != guess) {
+            if (input < guess) {
+                System.out.println("Too low! Try again.");
+            } else {
+                System.out.println("Too high! Try again.");
+            }
+            input = scanner.nextInt();
+        }
+        System.out.println("Congratulations! You guessed the number: " + guess);
+        scanner.close();
     }
 }
