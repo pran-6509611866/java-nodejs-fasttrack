@@ -4,15 +4,15 @@
 
 ## Day 1 – Introduction & Basic Syntax
 
-- [ ] รู้จัก Java, ติดตั้ง JDK, รันโปรแกรมแรก
-- [ ] โครงสร้างโปรแกรม Java (`main` method, class, file)
-- [ ] ประเภทข้อมูลพื้นฐาน (int, double, boolean, char, String)
-- [ ] ตัวแปร การประกาศ/กำหนดค่า
-- [ ] การรับค่าจากผู้ใช้ (`Scanner`)
-- [ ] Operator (+, -, *, /, %, ++, --, ==, !=, >, <, &&, ||, !)
-- [ ] คำสั่ง if-else, switch
-- [ ] คำสั่งวนลูป for, while, do-while
-- [ ] แบบฝึกหัด: Hello World, รับค่าคะแนน, เช็คเลขคู่คี่, หาผลรวม 1-100
+- [x] รู้จัก Java, ติดตั้ง JDK, รันโปรแกรมแรก
+- [x] โครงสร้างโปรแกรม Java (`main` method, class, file)
+- [x] ประเภทข้อมูลพื้นฐาน (int, double, boolean, char, String)
+- [x] ตัวแปร การประกาศ/กำหนดค่า
+- [x] การรับค่าจากผู้ใช้ (`Scanner`)
+- [x] Operator (+, -, *, /, %, ++, --, ==, !=, >, <, &&, ||, !)
+- [x] คำสั่ง if-else, switch
+- [x] คำสั่งวนลูป for, while, do-while
+- [x] แบบฝึกหัด: Hello World, รับค่าคะแนน, เช็คเลขคู่คี่, หาผลรวม 1-100
 
 ---
 
