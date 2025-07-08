@@ -1,47 +1,72 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 class Student {
+    // Properties
+    ArrayList<String> name;
+    int[] score;
+    Scanner scanner = new Scanner(System.in);
 
-    //properties
-    String name;
-    int age;
-
-    //constructor
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
+    // Constructor
+    public Student() {
+        this.name = new ArrayList<>();
+        this.score = new int[5];
     }
 
+    // Method แสดงข้อมูลนักเรียน
     public void displayInfo() {
         System.out.println("Student Information:");
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
+        for (int i = 0; i < name.size(); i++) {
+            System.out.println("Name: " + name.get(i) + " | Score: " + score[i]);
+        }
+        System.out.println("Total Score: " + getTotalScore());
+        System.out.println("Average Score: " + (getTotalScore() / (double) score.length));
+    }   
+
+    // Method คำนวณคะแนนรวม
+    public int getTotalScore() {
+        int total = 0;
+        for (int s : score) {
+            total += s;
+        }
+        return total;
     }
-}
 
-class Friend {
-
-    ArrayList<String> friends;
-
-    public Friend() {
-        friends = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
+    // Method รับชื่อเพื่อน 5 คน
+    public void addFriends() {
+        System.out.println("Enter 5 friend's names:");
+        
         for (int i = 0; i < 5; i++) {
             System.out.print("Enter friend's name " + (i + 1) + ": ");
-            String name = scanner.nextLine();
-            friends.add(name);
+            String friendName = scanner.nextLine();
+            name.add(friendName);
+        } 
+    }
+
+    // Method รับคะแนน 5 วิชา
+    public void addScore() {
+        System.out.println("Enter 5 subject scores:");
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter score for subject " + (i + 1) + ": ");
+            int score = scanner.nextInt();
+            this.score[i] = score;
         }
         scanner.close();
     }
+    
 }
+
+class Product {
+    
+}
+
 class Main {
     public static void main(String[] args) {
-        Student student = new Student("John Doe", 20);
-        student.displayInfo();
-
-        System.out.println("Enter 5 friend's names: ");
-        Friend friend = new Friend();
-        System.out.println("Friends: " + friend.friends);
+        Student student = new Student();
         
+        student.addFriends();
+        student.addScore();
+        student.displayInfo();
     }
 }

@@ -1,29 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-class Student {
 
-    //properties
-    String name;
-    int age;
-
-    //constructor
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public void displayInfo() {
-        System.out.println("Student Information:");
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-    }
-}
-
-class Friend {
+class FriendsCollector {
 
     ArrayList<String> friends;
 
-    public Friend() {
+    public FriendsCollector() {
         friends = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < 5; i++) {
@@ -34,13 +16,27 @@ class Friend {
         scanner.close();
     }
 }
-class Main {
+class Day1Student {
+    private String name;
+    private int age;
+
+    public Day1Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Day1 {
     public static void main(String[] args) {
-        Student student = new Student("John Doe", 20);
+        Day1Student student = new Day1Student("John Doe", 20);
         student.displayInfo();
 
         System.out.println("Enter 5 friend's names: ");
-        Friend friend = new Friend();
+        FriendsCollector friend = new FriendsCollector();
         System.out.println("Friends: " + friend.friends);
         
     }
